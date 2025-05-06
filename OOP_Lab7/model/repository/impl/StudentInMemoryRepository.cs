@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OOP_Lab7.view;
 
 namespace OOP_Lab7.model.repository.impl
 {
@@ -12,25 +13,29 @@ namespace OOP_Lab7.model.repository.impl
     /// </summary>
     public class StudentInMemoryRepository : IStudentRepository
     {
-        private readonly List<Student> _storage = new List<Student>();
+        public List<Student> Storage = new List<Student>();
 
-       
+        
         public void AddStudent(Student student) {
-            _storage.Add(student);
+            Storage.Add(student);
+         
         }
 
        
         public Student? GetStudentById(int id) {
-            return _storage.Where(s => s.Id == id).FirstOrDefault();
+            return Storage.Where(s => s.Id == id).FirstOrDefault();
         }
 
 
         public List<Student> GetAllStudents() {
-            return _storage;
+            return Storage;
         }
 
         public bool RemoveStudentById(int id) {
-            return _storage.RemoveAll(x => x.Id == id) == 1;
+            return Storage.RemoveAll(x => x.Id == id) == 1;
+
         }
+
+        
     }
 }

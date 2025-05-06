@@ -63,7 +63,7 @@
             mainPanel.Controls.Add(addStudentPanel);
             mainPanel.Controls.Add(logsRichTextBox);
             mainPanel.Location = new Point(10, 9);
-            mainPanel.Margin = new Padding(2, 2, 2, 2);
+            mainPanel.Margin = new Padding(2);
             mainPanel.Name = "mainPanel";
             mainPanel.Size = new Size(802, 337);
             mainPanel.TabIndex = 0;
@@ -84,7 +84,7 @@
             addStudentPanel.Controls.Add(studentName);
             addStudentPanel.Controls.Add(addStudentLabel);
             addStudentPanel.Location = new Point(3, 2);
-            addStudentPanel.Margin = new Padding(2, 2, 2, 2);
+            addStudentPanel.Margin = new Padding(2);
             addStudentPanel.Name = "addStudentPanel";
             addStudentPanel.Size = new Size(341, 332);
             addStudentPanel.TabIndex = 1;
@@ -93,17 +93,18 @@
             // 
             addStudentButton.Dock = DockStyle.Bottom;
             addStudentButton.Location = new Point(0, 299);
-            addStudentButton.Margin = new Padding(2, 2, 2, 2);
+            addStudentButton.Margin = new Padding(2);
             addStudentButton.Name = "addStudentButton";
             addStudentButton.Size = new Size(341, 33);
             addStudentButton.TabIndex = 11;
             addStudentButton.Text = "Добавить студента";
             addStudentButton.UseVisualStyleBackColor = true;
+            addStudentButton.Click += addStudentButton_Click;
             // 
             // durationOfStudyNumericUpDown
             // 
             durationOfStudyNumericUpDown.Location = new Point(149, 222);
-            durationOfStudyNumericUpDown.Margin = new Padding(2, 2, 2, 2);
+            durationOfStudyNumericUpDown.Margin = new Padding(2);
             durationOfStudyNumericUpDown.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             durationOfStudyNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             durationOfStudyNumericUpDown.Name = "durationOfStudyNumericUpDown";
@@ -126,7 +127,7 @@
             averageScoreNumericUpDown.DecimalPlaces = 2;
             averageScoreNumericUpDown.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
             averageScoreNumericUpDown.Location = new Point(107, 176);
-            averageScoreNumericUpDown.Margin = new Padding(2, 2, 2, 2);
+            averageScoreNumericUpDown.Margin = new Padding(2);
             averageScoreNumericUpDown.Maximum = new decimal(new int[] { 50, 0, 0, 65536 });
             averageScoreNumericUpDown.Name = "averageScoreNumericUpDown";
             averageScoreNumericUpDown.Size = new Size(230, 26);
@@ -146,7 +147,7 @@
             // studentSpecialityTextBox
             // 
             studentSpecialityTextBox.Location = new Point(108, 136);
-            studentSpecialityTextBox.Margin = new Padding(2, 2, 2, 2);
+            studentSpecialityTextBox.Margin = new Padding(2);
             studentSpecialityTextBox.Name = "studentSpecialityTextBox";
             studentSpecialityTextBox.Size = new Size(230, 26);
             studentSpecialityTextBox.TabIndex = 6;
@@ -164,7 +165,7 @@
             // studentGroupTextBox
             // 
             studentGroupTextBox.Location = new Point(108, 87);
-            studentGroupTextBox.Margin = new Padding(2, 2, 2, 2);
+            studentGroupTextBox.Margin = new Padding(2);
             studentGroupTextBox.Name = "studentGroupTextBox";
             studentGroupTextBox.Size = new Size(231, 26);
             studentGroupTextBox.TabIndex = 4;
@@ -182,7 +183,7 @@
             // studentNameTextBox
             // 
             studentNameTextBox.Location = new Point(108, 41);
-            studentNameTextBox.Margin = new Padding(2, 2, 2, 2);
+            studentNameTextBox.Margin = new Padding(2);
             studentNameTextBox.Name = "studentNameTextBox";
             studentNameTextBox.Size = new Size(231, 26);
             studentNameTextBox.TabIndex = 2;
@@ -211,7 +212,7 @@
             // 
             logsRichTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             logsRichTextBox.Location = new Point(349, 2);
-            logsRichTextBox.Margin = new Padding(2, 2, 2, 2);
+            logsRichTextBox.Margin = new Padding(2);
             logsRichTextBox.Name = "logsRichTextBox";
             logsRichTextBox.Size = new Size(451, 333);
             logsRichTextBox.TabIndex = 0;
@@ -226,7 +227,7 @@
             buttonsPanel.Controls.Add(studentIdNumericUpDown);
             buttonsPanel.Controls.Add(studentIdLabel);
             buttonsPanel.Location = new Point(10, 364);
-            buttonsPanel.Margin = new Padding(2, 2, 2, 2);
+            buttonsPanel.Margin = new Padding(2);
             buttonsPanel.Name = "buttonsPanel";
             buttonsPanel.Size = new Size(802, 50);
             buttonsPanel.TabIndex = 1;
@@ -236,41 +237,44 @@
             getAllStudensInfoButton.Anchor = AnchorStyles.Top;
             getAllStudensInfoButton.Cursor = Cursors.Hand;
             getAllStudensInfoButton.Location = new Point(570, 0);
-            getAllStudensInfoButton.Margin = new Padding(2, 2, 2, 2);
+            getAllStudensInfoButton.Margin = new Padding(2);
             getAllStudensInfoButton.Name = "getAllStudensInfoButton";
             getAllStudensInfoButton.Size = new Size(172, 50);
             getAllStudensInfoButton.TabIndex = 4;
             getAllStudensInfoButton.Text = "Получить информацию о всех студентах";
             getAllStudensInfoButton.UseVisualStyleBackColor = true;
+            getAllStudensInfoButton.Click += getAllStudensInfoButton_Click;
             // 
             // getStudentInfoButton
             // 
             getStudentInfoButton.Anchor = AnchorStyles.Top;
             getStudentInfoButton.Cursor = Cursors.Hand;
             getStudentInfoButton.Location = new Point(386, 0);
-            getStudentInfoButton.Margin = new Padding(2, 2, 2, 2);
+            getStudentInfoButton.Margin = new Padding(2);
             getStudentInfoButton.Name = "getStudentInfoButton";
             getStudentInfoButton.Size = new Size(166, 50);
             getStudentInfoButton.TabIndex = 3;
             getStudentInfoButton.Text = "Вывести информацию о студенте";
             getStudentInfoButton.UseVisualStyleBackColor = true;
+            getStudentInfoButton.Click += getStudentInfoButton_Click;
             // 
             // removeStudentButton
             // 
             removeStudentButton.Anchor = AnchorStyles.Top;
             removeStudentButton.Cursor = Cursors.Hand;
             removeStudentButton.Location = new Point(251, 0);
-            removeStudentButton.Margin = new Padding(2, 2, 2, 2);
+            removeStudentButton.Margin = new Padding(2);
             removeStudentButton.Name = "removeStudentButton";
             removeStudentButton.Size = new Size(122, 50);
             removeStudentButton.TabIndex = 2;
             removeStudentButton.Text = "Удалить студента";
             removeStudentButton.UseVisualStyleBackColor = true;
+            removeStudentButton.Click += removeStudentButton_Click;
             // 
             // studentIdNumericUpDown
             // 
             studentIdNumericUpDown.Location = new Point(86, 15);
-            studentIdNumericUpDown.Margin = new Padding(2, 2, 2, 2);
+            studentIdNumericUpDown.Margin = new Padding(2);
             studentIdNumericUpDown.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             studentIdNumericUpDown.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             studentIdNumericUpDown.Name = "studentIdNumericUpDown";
@@ -296,7 +300,7 @@
             ClientSize = new Size(821, 423);
             Controls.Add(buttonsPanel);
             Controls.Add(mainPanel);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "ViewImpl";
             Text = "ЛБ 7. Сазонов/Зимин";
             mainPanel.ResumeLayout(false);

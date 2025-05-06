@@ -25,6 +25,11 @@ namespace OOP_Lab7.controller
         {
             _model = model;
             _view = view;
+
+            _view.AddStudentRequested += new EventHandler<StudentDataEventArgs>(AddStudent);
+            _view.RemoveStudentRequested += new EventHandler<int>(RemoveStudent);
+            _view.GetStudentInfoRequested += new EventHandler<int>(GetStudentInfo);
+            _view.GetAllStudentsRequested += new EventHandler<EventArgs>(GetAllStudentsInfo);
         }
 
         /// <summary>
@@ -36,18 +41,18 @@ namespace OOP_Lab7.controller
         /// 3. Сохраняет в Model через сервис
         /// 4. Обновляет View
         /// </remarks>
-        public void AddStudent()
+        public void AddStudent(object? sender, StudentDataEventArgs eventArgs)
         {
             var student = new Student(
-                _view.GetStudentName(),
-                _view.GetGroup(),
-                _view.GetSpeciality(),
-                _view.GetAverageScore(),
-                _view.GetDurationOfStudy()
+                eventArgs.Name,
+                eventArgs.Group,
+                eventArgs.Speciality,
+                eventArgs.AverageScore,
+                eventArgs.DurationOfStudy
             );
 
             _model.AddStudent(student);
-            _view.ShowMessage($"Студент добавлен! ID: {student.Id}");
+        
         }
 
         /// <summary>
@@ -58,14 +63,11 @@ namespace OOP_Lab7.controller
         /// 2. Вызывает удаление в Model
         /// 3. Отображает результат в View
         /// </remarks>
-        public void RemoveStudent()
+        public void RemoveStudent(object? sender, int id)
         {
-            int id = _view.GetSelectedId();
             bool result = _model.RemoveStudent(id);
 
-            _view.ShowMessage(result
-                ? $"Студент {id} удален"
-                : $"Студент {id} не найден");
+
         }
 
         /// <summary>
@@ -76,9 +78,8 @@ namespace OOP_Lab7.controller
         /// 2. Форматирует результат
         /// 3. Передает в View для отображения
         /// </remarks>
-        public void GetStudentInfo()
+        public void GetStudentInfo(object? sender, int id)
         {
-            int id = _view.GetSelectedId();
             string info = _model.GetStudentInfo(id);
             _view.ShowMessage(info);
         }
@@ -86,7 +87,7 @@ namespace OOP_Lab7.controller
         /// <summary>
         /// Получает и отображает информацию о всех студентах
         /// </summary>
-        public void GetAllStudentsInfo()
+        public void GetAllStudentsInfo(object? sender, EventArgs eventArgs)
         {
             string info = _model.GetAllStudentsInfo();
             _view.ShowMessage(info);

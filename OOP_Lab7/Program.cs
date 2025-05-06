@@ -16,8 +16,10 @@ namespace OOP_Lab7
 
             var repository = new StudentInMemoryRepository();
             var service = new StudentService(repository);
+
             var view = new ViewImpl(service);
             var controller = new StudentController(service, view);
+
 
             Application.Run(view);
         }

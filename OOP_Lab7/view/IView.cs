@@ -13,6 +13,26 @@ namespace OOP_Lab7.view
     public interface IView
     {
         /// <summary>
+        /// Событие нажатия на кнопку "Добавить студента"
+        /// </summary>
+        event EventHandler<StudentDataEventArgs> AddStudentRequested;
+
+        /// <summary>
+        /// Событие нажатия на кнопку "Удалить студента"
+        /// </summary>
+        event EventHandler<int> RemoveStudentRequested;
+
+        /// <summary>
+        /// Событие нажатия на кнопку "Получить информацию студенте"
+        /// </summary>
+        event EventHandler<int> GetStudentInfoRequested;
+
+        /// <summary>
+        /// Событие нажатия на кнопку "Получить информацию о всех студентах"
+        /// </summary>
+        event EventHandler<EventArgs> GetAllStudentsRequested;
+
+        /// <summary>
         /// Получает имя студента из соответствующего поля ввода
         /// </summary>
         /// <returns>Строка с именем студента</returns>
